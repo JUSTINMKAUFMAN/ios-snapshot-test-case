@@ -6,6 +6,7 @@
  *
  */
 
+/*
 public extension FBSnapshotTestCase {
     public func FBSnapshotVerifyView(_ view: UIView,
                                      identifier: String = "",
@@ -91,4 +92,4 @@ public extension FBSnapshotTestCase {
         }
     }
 }
-
+*/
