@@ -228,7 +228,10 @@ typedef NS_ENUM(NSUInteger, FBTestSnapshotFileNameType) {
       fileName = @"";
       break;
   }
-  fileName = [fileName stringByAppendingString:NSStringFromSelector(selector)];
+  NSString *selectorString = NSStringFromSelector(selector);
+  NSString *formattedSelector = [selectorString stringByReplacingOccurrencesOfString:@"test" withString:@""];
+
+  fileName = [fileName stringByAppendingString:formattedSelector];
   if (0 < identifier.length) {
     fileName = [fileName stringByAppendingFormat:@"_%@", identifier];
   }
@@ -239,7 +242,6 @@ typedef NS_ENUM(NSUInteger, FBTestSnapshotFileNameType) {
   } else if (!noAgnosticOption) {
     fileName = FBDeviceAgnosticNormalizedFileNameFromOption(fileName, self.agnosticOptions);
   }
-
   // if ([[UIScreen mainScreen] scale] > 1) {
   //   fileName = [fileName stringByAppendingFormat:@"@%.fx", [[UIScreen mainScreen] scale]];
   // }
