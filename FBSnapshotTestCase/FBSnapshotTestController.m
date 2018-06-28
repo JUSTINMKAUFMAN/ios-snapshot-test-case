@@ -240,9 +240,9 @@ typedef NS_ENUM(NSUInteger, FBTestSnapshotFileNameType) {
     fileName = FBDeviceAgnosticNormalizedFileNameFromOption(fileName, self.agnosticOptions);
   }
 
-  if ([[UIScreen mainScreen] scale] > 1) {
-    fileName = [fileName stringByAppendingFormat:@"@%.fx", [[UIScreen mainScreen] scale]];
-  }
+  // if ([[UIScreen mainScreen] scale] > 1) {
+  //   fileName = [fileName stringByAppendingFormat:@"@%.fx", [[UIScreen mainScreen] scale]];
+  // }
   fileName = [fileName stringByAppendingPathExtension:@"png"];
   return fileName;
 }
