@@ -255,7 +255,11 @@ typedef NS_ENUM(NSUInteger, FBTestSnapshotFileNameType) {
   NSString *fileName = [self _fileNameForSelector:selector
                                        identifier:identifier
                                      fileNameType:FBTestSnapshotFileNameTypeReference];
-  NSString *filePath = [_referenceImagesDirectory stringByAppendingPathComponent:_testName];
+
+  NSArray *testComponents = [_testName componentsSeparatedByString:@"."];
+  NSString *testNameFormatted = testComponents[1];
+
+  NSString *filePath = [_referenceImagesDirectory stringByAppendingPathComponent:testNameFormatted];
   filePath = [filePath stringByAppendingPathComponent:fileName];
   return filePath;
 }
@@ -271,7 +275,9 @@ typedef NS_ENUM(NSUInteger, FBTestSnapshotFileNameType) {
   if (getenv("IMAGE_DIFF_DIR")) {
     folderPath = @(getenv("IMAGE_DIFF_DIR"));
   }
-  NSString *filePath = [folderPath stringByAppendingPathComponent:_testName];
+  NSArray *testComponents = [_testName componentsSeparatedByString:@"."];
+  NSString *testNameFormatted = testComponents[1];
+  NSString *filePath = [folderPath stringByAppendingPathComponent:testNameFormatted];
   filePath = [filePath stringByAppendingPathComponent:fileName];
   return filePath;
 }
