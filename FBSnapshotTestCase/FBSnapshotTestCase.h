@@ -125,6 +125,11 @@
 - (void)tearDown NS_REQUIRES_SUPER;
 
 /**
+ When set to values different than 0, it uses a specific scale for generating and comparing images rather than using the main screen's default scale.
+ */
+@property (readwrite, nonatomic, assign) CGFloat manualScale;
+
+/**
  Performs the comparison or records a snapshot of the layer if recordMode is YES.
  @param viewOrLayer The UIView or CALayer to snapshot
  @param identifier An optional identifier, used if there are multiple snapshot tests in a given -test method.
