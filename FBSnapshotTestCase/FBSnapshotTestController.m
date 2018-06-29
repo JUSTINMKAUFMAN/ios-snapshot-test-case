@@ -259,6 +259,7 @@ typedef NS_ENUM(NSUInteger, FBTestSnapshotFileNameType) {
     fileName = [fileName stringByAppendingPathExtension:@"png"];
   }*/
 
+  fileName = [fileName stringByAppendingPathExtension:@"png"];
   return fileName;
 }
 
